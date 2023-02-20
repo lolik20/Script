@@ -13,5 +13,9 @@ chats= f.read().split('https://t.me/')
 for chat in chats:
     if "@" not in chat:
         chat = "@"+chat.replace('\n','')
-    client.send_file(chat, 'image.jpg',caption=text)
+    try:
+        client.send_file(chat, 'image.jpg',caption=text)
+    except:
+        print("invalid string")
+    print(chat)
     time.sleep(60)
